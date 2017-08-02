@@ -21,7 +21,7 @@ app.get('/article-three',function(req,res){
     res.send("Article third served");
 });
 
-app.get('/ui/article-one.html',function(req,res){
+app.get('/article-one',function(req,res){
     res.send(path.join(__dirname,'ui','article-one.html'));
 });
 
