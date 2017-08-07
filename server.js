@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-     'article-one':{
+    'article-one':{
         title:'Article One | Parvinder',
         heading:'Article One',
         date:'6 Aug 2017',
@@ -84,7 +84,7 @@ app.get('/:articleName',function(req,res){
 var counter=0;
 app.get('/counter',function(req,res){
     counter=counter+1;
-    res.send(counter.toString());
+    res.send(counter);
 });
 
 app.get('/ui/style.css', function (req, res) {
