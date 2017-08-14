@@ -4,7 +4,7 @@ var button=document.getElementById('counter');
 button.onclick=function(){
     
     var request= new XMLHttpRequest();
-    
+    console.log("inside onclick");
     //create new request object
     request.onreadystatchange=function(){
         console.log("new request");
