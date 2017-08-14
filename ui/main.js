@@ -6,7 +6,7 @@ button.onclick=function(){
     var request= new XMLHttpRequest();
     console.log("inside onclick");
     //create new request object
-    request.onreadystatchange=function(){
+    request.onreadystatechange=function(){
         console.log("new request");
         if(request.readyState===XMLHttpRequest.DONE){
             console.log("done");
