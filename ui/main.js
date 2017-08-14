@@ -4,18 +4,17 @@ var button=document.getElementById('counter');
 button.onclick=function(){
     
     var request= new XMLHttpRequest();
-    console.log("inside onclick");
+   
     //create new request object
     request.onreadystatechange = function(){
-        console.log("new request");
+       
         if(request.readyState===XMLHttpRequest.DONE){
-            console.log("done");
+          
             if(request.status===200){
                 var counter=request.responseText;
-                console.log('recieved response!');
                 var span=document.getElementById("count");
                 span.innerHTML=counter.toString();
-                alert(counter.toString());
+                
             }
         }
     }
