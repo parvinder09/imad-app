@@ -25,8 +25,7 @@ button.onclick=function(){
    request.send();
 }
 
-var nameInput=document.getElementById('name');
-var name=nameInput.value;
+
 var submit=document.getElementById('btn_submit');
 submit.onclick=function(){
     //make a request to server
@@ -52,6 +51,9 @@ submit.onclick=function(){
         }
     }
     
+   
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
    
    //make request
    request.open("GET","http://parvindersharma09.imad.hasura-app.io/submit-name?name="+name,true);
