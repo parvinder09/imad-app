@@ -14,42 +14,6 @@ var config={
 var app = express();
 app.use(morgan('combined'));
 
-var articles={
-    'article-one':{
-        title:'Article One | Parvinder',
-        heading:'Article One',
-        date:'6 Aug 2017',
-        content:`<p>This is article one. This is article one. This is article one.
-                This is article one. This is article one. This is article one.
-                This is article one. This is article one. This is article one.
-                This is article one. This is article one. This is article one.
-                This is article one. This is article one. This is article one.
-                This is article one. This is article one. This is article one.</p>`
-    },
-    'article-two':{
-        title:'Article Two | Parvinder',
-        heading:'Article Two',
-        date:'7 Aug 2017',
-        content:`<p>This is article Two. This is article two. This is article Two.
-                This is article Two. This is article Two. This is article Two.
-                This is article two. This is article two. This is article two.
-                This is article two. This is article two. This is article two.
-                This is article two. This is article two. This is article two.
-                This is article two. This is article two. This is article two.</p>`
-    },
-    'article-three':{
-        
-        title:'Article Three | Parvinder',
-        heading:'Article Three',
-        date:'8 Aug 2017',
-        content:`<p>This is article three. This is article three. This is article three.
-                This is article three. This is article three. This is article three.
-                This is article three. This is article three. This is article three.
-                This is article three. This is article three. This is article three.
-                This is article three. This is article three. This is article three.
-                This is article three. This is article three. This is article three.</p>`
-    }
-};
 function createTemplate(data){
     var title=data.title;
     var heading=data.heading;
