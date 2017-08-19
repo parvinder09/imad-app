@@ -39,15 +39,10 @@ submit.onclick=function(){
         if(request.readyState===XMLHttpRequest.DONE){
           
             if(request.status===200){
-               var names=request.responseText;
-               names=JSON.parse(names);
-               var list='';
-                for(var i=0;i<names.length;i++){
-                list+='<li>'+names[i]+'</li>';
-                }
-                
-                var ul=document.getElementById('name_list');
-                ul.innerHTML=list;
+               alert('Logged in successfully');
+            }
+            else if(request.status==403){
+                alert("Forbidden");
             }
         }
     }
@@ -55,7 +50,8 @@ submit.onclick=function(){
    
     var username=document.getElementById('username').value;
     var password=document.getElementById('password').value;
-
+    console.log(usernmae);
+    console.log(password);
    //make request
    request.open("POST","http://parvindersharma09.imad.hasura-app.io/login",true);
    request.send(JSON.stringify({username:username,password:password}));
