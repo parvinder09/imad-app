@@ -1,5 +1,5 @@
 console.log('Loaded!');
-var button=document.getElementById('counter');
+/*var button=document.getElementById('counter');
 
 
 button.onclick=function(){
@@ -24,7 +24,7 @@ button.onclick=function(){
    //make request
    request.open("GET","http://parvindersharma09.imad.hasura-app.io/counter",true);
    request.send();
-}
+}*/
 
 
 var submit=document.getElementById('submit_btn');
@@ -53,12 +53,12 @@ submit.onclick=function(){
     }
     
    
-    var nameInput=document.getElementById('username');
-    var name=nameInput.value;
-   
+    var username=document.getElementById('username').value;
+    var password=document.getElementById('password').value;
+
    //make request
-   request.open("GET","http://parvindersharma09.imad.hasura-app.io/submit-name?name="+name,true);
-   request.send();
+   request.open("POST","http://parvindersharma09.imad.hasura-app.io/login",true);
+   request.send(JSON.stringify({username:username,password:password}));
     
     
 }
