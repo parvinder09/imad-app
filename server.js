@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
+var bodyParser=require('body-parser');
 
 var config={
     user:'parvindersharma09',
@@ -14,6 +15,7 @@ var config={
 }
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 function createTemplate(data){
     var title=data.title;
@@ -59,9 +61,12 @@ app.get('/hash/:input',function(req,res){
     
     var hashedString=hash(req.params.input,'this-is-just-a-random-string')
     res.send(hashedString);
-})
+});
 
-app.get('/create-user',function(req,res){
+app.post('/create-user',function(req,res){
+    var username=req.body.username;
+    var password=req.body.password;
+    
     var salt=crypto.getRandomBytes(128).toString('hex');
     var dbString=hash(password,salt);
     pool.query('INSERT into "user" (username,password) VALUES ($1,$2)',[username,dbString],function(req,res){
@@ -71,8 +76,8 @@ app.get('/create-user',function(req,res){
         else{
             res.send('User created Successfully '+username);
         }
-    })
-})
+    });
+});
 
 var pool=new Pool(config);
 app.get('/test-db',function(req,res){
@@ -83,8 +88,8 @@ app.get('/test-db',function(req,res){
         else{
             res.send(JSON.stringify(result.rows));
         }
-    })
-})
+    });
+});
 
 var counter=0;
 app.get('/counter',function(req,res){
@@ -115,7 +120,7 @@ app.get('/articles/:articleName',function(req,res){
             var articleData=result.rows[0];
              res.send(createTemplate(articleData));
         }
-    })
+    });
    
 });
 
