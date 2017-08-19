@@ -27,7 +27,7 @@ button.onclick=function(){
 }
 
 
-var submit=document.getElementById('btn_submit');
+var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
     //make a request to server
     
