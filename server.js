@@ -88,7 +88,7 @@ app.post('/login',function(req,res){
             res.status(500).send(err.toString());
         }
         else{
-            if(resutl.rows.length===0){
+            if(result.rows.length===0){
                 res.status(403).send('Username/Password is invalid');
             }
             else{
