@@ -53,7 +53,7 @@ submit.onclick=function(){
     }
     
    
-    var nameInput=document.getElementById('name');
+    var nameInput=document.getElementById('username');
     var name=nameInput.value;
    
    //make request
