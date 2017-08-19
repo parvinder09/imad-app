@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
 
 function hash(input,salt){
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return hashed;
+    return hashed.toString('hex');
 }
 
 app.get('/hash/:input',function(req,res){
@@ -60,6 +60,7 @@ app.get('/hash/:input',function(req,res){
     var hashedString=hash(request.params.input,'this-is-just-a-random-string')
     res.send(hashedString);
 })
+
 var pool=new Pool(config);
 app.get('/test-db',function(req,res){
     pool.query('SELECT * FROM article',function(err,result){
