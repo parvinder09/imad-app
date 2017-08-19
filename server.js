@@ -122,7 +122,13 @@ app.get('/check-login',function(req,res){
     else{
         res.send('You are not logged in');
     }
-})
+});
+
+app.get('/logout',function(req,res){
+    delete req.session.auth;
+    res.send('Logged Out');
+});
+
 var pool=new Pool(config);
 app.get('/test-db',function(req,res){
     pool.query('SELECT * FROM article',function(err,result){
